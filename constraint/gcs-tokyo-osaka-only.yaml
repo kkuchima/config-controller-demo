@@ -1,0 +1,18 @@
+apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: GCPStorageLocationConstraintV1
+metadata:
+  name: tokyo-and-osaka-only
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+    - apiGroups:
+      - storage.cnrm.cloud.google.com
+      kinds:
+      - StorageBucket
+    namespaces:
+    - config-control
+  parameters:
+    locations:
+    - asia-northeast1
+    - asia-northeast2
