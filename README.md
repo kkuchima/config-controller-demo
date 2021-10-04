@@ -163,6 +163,13 @@ https://cloud.google.com/storage/browser?project=${PROJECT_ID} にアクセス�
 ### 3-5. 監査ログの確認
 https://console.cloud.google.com/log にアクセスし、手順 3-3 で制約により作成が拒否されたバケットの監査ログ（失敗）が出力されていることを確認します
 
+### 3-6. 作成した Cloud Storage バケットの削除
+作成したバケットを削除します  
+3-4 と同様に Cloud Console 上からもバケットが削除されていることを確認します
+```bash
+kubectl delete -f osaka-bucket.yaml
+```
+
 ## 4. Policy Controller を使ったガードレールの作成（バージョニングの要求）
 
 ### 4-1. 制約テンプレートの適用
