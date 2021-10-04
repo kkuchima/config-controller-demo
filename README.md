@@ -93,7 +93,7 @@ kubectl apply -f tokyo-bucket.yaml
 ```
 
 ### 2-3. 作成した Cloud Storage バケットの確認
-https://console.cloud.google.com/storage/browser?project=${PROJECT_ID} にアクセスし、手順 2-2 で作成したバケットが存在していることを確認します
+https://console.cloud.google.com/storage/browser にアクセスし、手順 2-2 で作成したバケットが存在していることを確認します
 
 ### 2-4. 作成した Cloud Storage バケットの削除
 作成したバケットを削除します  
@@ -157,11 +157,10 @@ kubectl apply -f singapore-bucket.yaml
 ```
 
 ### 3-4. 作成した Cloud Storage バケットの確認
-https://cloud.google.com/storage/browser?project=${PROJECT_ID} にアクセスし、手順 3-3 で作成したバケットが存在していることを確認します
-
+https://console.cloud.google.com/storage/browser にアクセスし、手順 3-3 で作成したバケットが存在していることを確認します  
 
 ### 3-5. 監査ログの確認
-https://console.cloud.google.com/log にアクセスし、手順 3-3 で制約により作成が拒否されたバケットの監査ログ（失敗）が出力されていることを確認します
+https://console.cloud.google.com/logs/viewer にアクセスし、手順 3-3 で制約により作成が拒否されたバケットの監査ログ（失敗）が出力されていることを確認します
 
 ### 3-6. 作成した Cloud Storage バケットの削除
 作成したバケットを削除します  
@@ -220,10 +219,10 @@ kubectl apply -f tokyo-bucket.yaml
 ```
 
 ### 4-5. 作成した Cloud Storage バケットの確認
-https://cloud.google.com/storage/browser?project=${PROJECT_ID} にアクセスし、手順 4-4 で作成したバケットが存在していることを確認します
+https://console.cloud.google.com/storage/browser にアクセスし、手順 4-4 で作成したバケットが存在していることを確認します
 
 ### 4-6. 監査ログの確認
-https://console.cloud.google.com/logs/query&project=${PROJECT_ID} にアクセスし、手順 4-3 で制約により作成が拒否されたバケットの監査ログ（失敗）が出力されていることを確認します
+https://console.cloud.google.com/logs/viewer にアクセスし、手順 4-3 で制約により作成が拒否されたバケットの監査ログ（失敗）が出力されていることを確認します
 
 ## 5. ハンズオン環境のクリーンアップ
 ハンズオンが完了したら本環境で利用したリソースを削除します
