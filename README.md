@@ -223,7 +223,7 @@ kubectl apply -f tokyo-bucket.yaml
 https://cloud.google.com/storage/browser?project=${PROJECT_ID} にアクセスし、手順 4-4 で作成したバケットが存在していることを確認します
 
 ### 4-6. 監査ログの確認
-https://console.cloud.google.com/log にアクセスし、手順 4-3 で制約により作成が拒否されたバケットの監査ログ（失敗）が出力されていることを確認します
+https://console.cloud.google.com/logs/query&project=${PROJECT_ID} にアクセスし、手順 4-3 で制約により作成が拒否されたバケットの監査ログ（失敗）が出力されていることを確認します
 
 ## 5. ハンズオン環境のクリーンアップ
 ハンズオンが完了したら本環境で利用したリソースを削除します
