@@ -80,7 +80,7 @@ kubectl apply -f tokyo-bucket.yaml
 ```
 
 ### 2-3. 作成した Cloud Storage バケットの確認
-https://cloud.google.com/storage/browser?project=${PROJECT_ID} にアクセスし、手順 2-2 で作成したバケットが存在していることを確認します
+https://console.cloud.google.com/storage/browser?project=${PROJECT_ID} にアクセスし、手順 2-2 で作成したバケットが存在していることを確認します
 
 ### 2-4. 作成した Cloud Storage バケットの削除
 作成したバケットを削除します  
