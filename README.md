@@ -16,7 +16,8 @@ gcloud services enable krmapihosting.googleapis.com \
 ```
 
 ### 1-2. Config Controller クラスタの作成
-任意の名前で Config Controller クラスタを作成します (完成まで 十数分程度時間がかかります)
+Config Controller クラスタを作成します  
+`CONFIG_CONTROLLER_NAME` に任意の名前を設定し以下作成コマンドを実行します  (完成まで 十数分程度時間がかかります)
 ```bash
 export CONFIG_CONTROLLER_NAME=<Config Controller クラスタ名>
 
@@ -47,6 +48,18 @@ gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
 この手順以降は参加者各自で進めてください
 
 ### 2-1. 作業準備
+手順 1 で作成した Config Controller クラスタの認証情報を取得します
+```bash
+# Project ID / Config Conttroller クラスタ名の設定（手順１実施済みの場合省略可）
+export PROJECT_ID=<Project ID>
+export CONFIG_CONTROLLER_NAME=<Config Controller クラスタ名>
+
+# Config Controller クラスタの認証情報の取得
+gcloud config set project ${PROJECT_ID}
+gcloud alpha anthos config controller get-credentials ${CONFIG_CONTROLLER_NAME} \
+    --location us-central1
+```
+
 ハンズオン用リポジトリをクローンします
 ```bash
 # 自分の ID を入力
