@@ -48,9 +48,9 @@ gcloud projects add-iam-policy-binding "${PROJECT_ID}" \
 この手順以降は参加者各自で進めてください
 
 ### 2-1. 作業準備
-手順 1 で作成した Config Controller クラスタの認証情報を取得します
+手順 1 で作成した Config Controller クラスタの認証情報を取得します（手順１実施済みの場合省略可）
 ```bash
-# Project ID / Config Conttroller クラスタ名の設定（手順１実施済みの場合省略可）
+# Project ID / Config Conttroller クラスタ名の設定
 export PROJECT_ID=<Project ID>
 export CONFIG_CONTROLLER_NAME=<Config Controller クラスタ名>
 
@@ -159,6 +159,10 @@ kubectl apply -f singapore-bucket.yaml
 ### 3-4. 作成した Cloud Storage バケットの確認
 https://cloud.google.com/storage/browser?project=${PROJECT_ID} にアクセスし、手順 3-3 で作成したバケットが存在していることを確認します
 
+
+### 3-5. 監査ログの確認
+https://console.cloud.google.com/log にアクセスし、手順 3-3 で制約により作成が拒否されたバケットの監査ログ（失敗）が出力されていることを確認します
+
 ## 4. Policy Controller を使ったガードレールの作成（バージョニングの要求）
 
 ### 4-1. 制約テンプレートの適用
@@ -211,5 +215,26 @@ kubectl apply -f tokyo-bucket.yaml
 ### 4-5. 作成した Cloud Storage バケットの確認
 https://cloud.google.com/storage/browser?project=${PROJECT_ID} にアクセスし、手順 4-4 で作成したバケットが存在していることを確認します
 
+### 4-6. 監査ログの確認
+https://console.cloud.google.com/log にアクセスし、手順 4-3 で制約により作成が拒否されたバケットの監査ログ（失敗）が出力されていることを確認します
+
 ## 5. ハンズオン環境のクリーンアップ
-ハンズオンが完了したら本環境で利用したプロジェクトを削除します
+ハンズオンが完了したら本環境で利用したリソースを削除します
+
+### 5-1. バケットの削除
+```bash
+kubectl delete -f tokyo-bucket.yaml
+kubectl delete -f osaka-bucket.yaml
+```
+
+### 5-2. Config Controller クラスタの削除
+```bash
+gcloud alpha anthos config controller delete ${CONFIG_CONTROLLER_NAME} \
+    --location=us-central1
+```
+
+### 5-3. Project の削除
+ハンズオン用のプロジェクトを削除している場合は、必要に応じてプロジェクトを削除します
+```bash
+gcloud projects delete ${PROJECT_ID}
+```
